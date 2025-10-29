@@ -5,7 +5,7 @@ CREATE OR REPLACE PACKAGE executor_au.visitante IS
                            tp_documento_identificacao IN VARCHAR2(30),
                            ds_observacao IN VARCHAR2(200)
                          ) RETURN CLOB;
-
+ 
     FUNCTION visitante_post(cd_visitante IN NUMBER,
                             cd_pessoa IN NUMBER,
                             no_empresa_origem IN VARCHAR2(100),
