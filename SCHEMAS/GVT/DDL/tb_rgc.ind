@@ -1,0 +1,4 @@
+CREATE INDEX gvt.ix_rgc ON gvt.tb_rgc
+ (cd_rgc)
+tablespace tbsind_gvt
+/
