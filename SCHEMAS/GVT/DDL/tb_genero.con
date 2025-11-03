@@ -1,0 +1,5 @@
+ALTER TABLE gvt.tb_genero
+ ADD (CONSTRAINT pk_genero PRIMARY KEY
+      (cd_genero)
+ )
+/
