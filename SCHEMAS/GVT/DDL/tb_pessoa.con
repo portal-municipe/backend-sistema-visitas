@@ -1,0 +1,21 @@
+ALTER TABLE gvt.tb_pessoa
+ ADD (CONSTRAINT pk_pessoa PRIMARY KEY
+      (cd_pessoa)
+      using index
+      tablespace tbsind_gvt
+ )
+/
+
+ALTER TABLE gvt.tb_pessoa
+ADD (CONSTRAINT fk_pessoa_genero
+FOREIGN KEY (cd_genero)
+REFERENCES gvt.tb_genero(cd_genero)
+)
+/
+
+ALTER TABLE gvt.tb_pessoa
+ADD (CONSTRAINT fk_pessoa_rgc
+FOREIGN KEY (cd_rgc)
+REFERENCES gvt.tb_rgc(cd_rgc)
+)
+/

@@ -1,0 +1,4 @@
+CREATE INDEX gvt.ix_pessoa ON gvt.tb_departamento
+ (cd_departamento)
+tablespace tbsind_gvt
+/

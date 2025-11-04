@@ -1,0 +1,4 @@
+CREATE INDEX gvt.ix_visitante ON gvt.tb_visita
+ (cd_visita)
+tablespace tbsind_gvt
+/

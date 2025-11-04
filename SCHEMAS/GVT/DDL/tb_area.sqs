@@ -1,4 +1,4 @@
-CREATE SEQUENCE gvt.sq_cd_pessoa
+CREATE SEQUENCE gvt.sq_cd_area
  NOMAXVALUE
  NOMINVALUE
  NOCYCLE
