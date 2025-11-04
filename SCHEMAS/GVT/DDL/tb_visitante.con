@@ -1,0 +1,14 @@
+ALTER TABLE gvt.tb_visitante
+ ADD (CONSTRAINT pk_visitante PRIMARY KEY
+      (cd_visitante)
+      using index
+      tablespace tbsind_gvt
+ )
+/
+
+ALTER TABLE gvt.tb_visitante
+ADD (CONSTRAINT fk_visitante_pessoa
+FOREIGN KEY (cd_pessoa)
+REFERENCES gvt.tb_pessoa(cd_pessoa)
+)
+/

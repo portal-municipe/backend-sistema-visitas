@@ -1,0 +1,7 @@
+ALTER TABLE gvt.tb_departamento
+ ADD (CONSTRAINT pk_departamento PRIMARY KEY
+      (cd_departamento)
+      using index
+      tablespace tbsind_gvt
+ )
+/

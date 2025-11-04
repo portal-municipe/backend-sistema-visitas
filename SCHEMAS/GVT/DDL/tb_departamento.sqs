@@ -1,0 +1,7 @@
+CREATE SEQUENCE gvt.sq_cd_departamento
+ NOMAXVALUE
+ NOMINVALUE
+ NOCYCLE
+ NOCACHE
+/
+
