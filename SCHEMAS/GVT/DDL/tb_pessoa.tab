@@ -8,4 +8,3 @@ CREATE TABLE gvt.tb_pessoa (
     ds_email VARCHAR2(100),
     ds_endereco VARCHAR2(200)
 )
-/

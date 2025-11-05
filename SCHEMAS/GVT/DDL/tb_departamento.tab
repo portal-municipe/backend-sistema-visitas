@@ -3,4 +3,3 @@ CREATE TABLE gvt.tb_departamento (
        no_departamento VARCHAR2(100) NOT NULL,
        ds_departamento VARCHAR2(200)
 )
-/

@@ -6,4 +6,3 @@ CREATE TABLE gvt.tb_funcionario (
     cd_departamento NUMBER,
     cd_pessoa NUMBER
 )
-/

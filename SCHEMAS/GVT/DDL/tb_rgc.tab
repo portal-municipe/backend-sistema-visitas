@@ -33,4 +33,3 @@ CREATE TABLE gvt.tb_rgc (
     tp_documento_rgc VARCHAR2(240),
     fl_residente VARCHAR2(240)
 )
-/

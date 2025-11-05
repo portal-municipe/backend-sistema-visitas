@@ -4,4 +4,3 @@ ALTER TABLE gvt.tb_genero
       using index
       tablespace tbsind_gvt
  )
-/

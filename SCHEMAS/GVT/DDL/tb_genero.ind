@@ -1,4 +1,3 @@
 CREATE INDEX gvt.ix_genero ON gvt.tb_genero
  (cd_genero)
 tablespace tbsind_gvt
-/

@@ -9,4 +9,3 @@ CREATE TABLE gvt.tb_visita (
     cd_tipo_visita NUMBER,
     ds_observacao VARCHAR2(300)
 )
-/

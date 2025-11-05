@@ -4,4 +4,3 @@ ALTER TABLE gvt.tb_departamento
       using index
       tablespace tbsind_gvt
  )
-/

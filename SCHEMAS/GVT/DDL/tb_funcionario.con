@@ -4,7 +4,7 @@ ALTER TABLE gvt.tb_funcionario
       using index
       tablespace tbsind_gvt
  )
-/
+ /
 
 ALTER TABLE gvt.tb_funcionario
 ADD (CONSTRAINT fk_funcionario_departamento
@@ -18,4 +18,3 @@ ADD (CONSTRAINT fk_funcionario_pessoa
 FOREIGN KEY (cd_pessoa)
 REFERENCES gvt.tb_pessoa(cd_pessoa)
 )
-/

@@ -1,14 +1,5 @@
 ALTER TABLE gvt.tb_usuario
- ADD (CONSTRAINT pk_usuario PRIMARY KEY
-      (cd_usuario)
-      using index
-      tablespace tbsind_gvt
- )
-/
-
-ALTER TABLE gvt.tb_usuario
 ADD (CONSTRAINT fk_usuario_pessoa
 FOREIGN KEY (cd_pessoa)
 REFERENCES gvt.tb_pessoa(cd_pessoa)
 )
-/

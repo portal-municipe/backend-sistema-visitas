@@ -7,4 +7,6 @@ QUOTA UNLIMITED ON users;
 
 grant create session to gvt;
 grant dba to gvt;
+
+CREATE TABLESPACE tbsind_gvt;
 /
