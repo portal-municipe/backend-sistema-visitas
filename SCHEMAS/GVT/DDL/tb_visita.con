@@ -1,0 +1,27 @@
+
+ALTER TABLE gvt.tb_visita
+ADD (CONSTRAINT fk_visita_visitante
+FOREIGN KEY (cd_visitante)
+REFERENCES gvt.tb_visitante(cd_visitante))
+/
+
+ALTER TABLE gvt.tb_visita
+ADD (CONSTRAINT fk_visita_funcionario
+FOREIGN KEY (cd_funcionario_responsavel)
+REFERENCES gvt.tb_funcionario(cd_funcionario)
+)
+/
+
+ALTER TABLE gvt.tb_visita
+ADD (CONSTRAINT fk_visita_area
+FOREIGN KEY (cd_area)
+REFERENCES gvt.tb_area(cd_area)
+)
+/
+
+ALTER TABLE gvt.tb_visita
+ADD (CONSTRAINT fk_visita_tipo
+FOREIGN KEY (cd_tipo_visita)
+REFERENCES gvt.tb_tipo_visita(cd_tipo_visita)
+)
+/

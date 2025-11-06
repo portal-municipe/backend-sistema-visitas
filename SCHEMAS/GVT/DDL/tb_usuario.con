@@ -1,0 +1,5 @@
+ALTER TABLE gvt.tb_usuario
+ADD (CONSTRAINT fk_usuario_pessoa
+FOREIGN KEY (cd_pessoa)
+REFERENCES gvt.tb_pessoa(cd_pessoa)
+)

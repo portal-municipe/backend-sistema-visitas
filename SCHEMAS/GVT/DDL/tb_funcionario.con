@@ -1,0 +1,20 @@
+ALTER TABLE gvt.tb_funcionario
+ ADD (CONSTRAINT pk_funcionario PRIMARY KEY
+      (cd_funcionario)
+      using index
+      tablespace tbsind_gvt
+ )
+ /
+
+ALTER TABLE gvt.tb_funcionario
+ADD (CONSTRAINT fk_funcionario_departamento
+FOREIGN KEY (cd_departamento)
+REFERENCES gvt.tb_departamento(cd_departamento)
+)
+/
+
+ALTER TABLE gvt.tb_funcionario
+ADD (CONSTRAINT fk_funcionario_pessoa
+FOREIGN KEY (cd_pessoa)
+REFERENCES gvt.tb_pessoa(cd_pessoa)
+)

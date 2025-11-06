@@ -1,0 +1,13 @@
+/*ALTER TABLE gvt.tb_area
+ ADD (CONSTRAINT pk_area PRIMARY KEY
+      (cd_area)
+      using index
+      tablespace tbsind_gvt
+ )
+*/
+
+ALTER TABLE gvt.tb_area
+ADD (CONSTRAINT fk_area_departamento
+FOREIGN KEY (cd_departamento)
+REFERENCES gvt.tb_departamento(cd_departamento)
+)

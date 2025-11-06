@@ -1,0 +1,6 @@
+ALTER TABLE gvt.tb_rgc
+ ADD (CONSTRAINT pk_rgc PRIMARY KEY
+      (cd_rgc)
+      using index
+      tablespace tbsind_gvt
+ )
