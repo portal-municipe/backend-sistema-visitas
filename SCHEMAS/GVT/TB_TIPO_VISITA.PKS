@@ -11,27 +11,27 @@ CREATE OR REPLACE PACKAGE gvt.cg$TB_TIPO_VISITA IS
 
   --TB_TIPO_VISITA row type variable
   TYPE cg$row_type IS RECORD(
-    CD_TIPO_VISITA         cg$row.CD_TIPO_VISITA%TYPE,
-    DS_TIPO_VISITA         cg$row.DS_TIPO_VISITA%TYPE,
-    the_rowid         ROWID);
+    CD_TIPO_VISITA cg$row.CD_TIPO_VISITA%TYPE,
+    DS_TIPO_VISITA cg$row.DS_TIPO_VISITA%TYPE,
+    the_rowid      ROWID);
 
   --  TB_TIPO_VISITA indicator type variable
   TYPE cg$ind_type IS RECORD(
-    CD_TIPO_VISITA         BOOLEAN DEFAULT FALSE,
-    DS_TIPO_VISITA         BOOLEAN DEFAULT FALSE);
+    CD_TIPO_VISITA BOOLEAN DEFAULT FALSE,
+    DS_TIPO_VISITA BOOLEAN DEFAULT FALSE);
 
   cg$ind_true cg$ind_type;
 
   --  TB_TIPO_VISITA primary key type variable
   TYPE cg$pk_type IS RECORD(
-    CD_TIPO_VISITA   cg$row.CD_TIPO_VISITA%TYPE,
-    the_rowid 	ROWID);
+    CD_TIPO_VISITA cg$row.CD_TIPO_VISITA%TYPE,
+    the_rowid      ROWID);
 
   --  PL/SQL Table Type variable for triggers
   TYPE cg$tab_row_type IS RECORD(
-    CD_TIPO_VISITA          TB_TIPO_VISITA.CD_TIPO_VISITA%TYPE,
-    DS_TIPO_VISITA          TB_TIPO_VISITA.DS_TIPO_VISITA%TYPE,
-    action_performed   VARCHAR2(4));
+    CD_TIPO_VISITA   TB_TIPO_VISITA.CD_TIPO_VISITA%TYPE,
+    DS_TIPO_VISITA   TB_TIPO_VISITA.DS_TIPO_VISITA%TYPE,
+    action_performed VARCHAR2(4));
 
   TYPE cg$table_type IS TABLE OF cg$tab_row_type INDEX BY BINARY_INTEGER;
 

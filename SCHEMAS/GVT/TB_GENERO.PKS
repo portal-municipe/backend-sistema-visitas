@@ -11,27 +11,27 @@ CREATE OR REPLACE PACKAGE gvt.cg$TB_GENERO IS
 
   --TB_GENERO row type variable
   TYPE cg$row_type IS RECORD(
-    CD_GENERO         cg$row.CD_GENERO%TYPE,
-    DS_GENERO         cg$row.DS_GENERO%TYPE,
-    the_rowid         ROWID);
+    CD_GENERO cg$row.CD_GENERO%TYPE,
+    DS_GENERO cg$row.DS_GENERO%TYPE,
+    the_rowid ROWID);
 
   --  TB_GENERO indicator type variable
   TYPE cg$ind_type IS RECORD(
-    CD_GENERO         BOOLEAN DEFAULT FALSE,
-    DS_GENERO         BOOLEAN DEFAULT FALSE);
+    CD_GENERO BOOLEAN DEFAULT FALSE,
+    DS_GENERO BOOLEAN DEFAULT FALSE);
 
   cg$ind_true cg$ind_type;
 
   --  TB_GENERO primary key type variable
   TYPE cg$pk_type IS RECORD(
-    CD_GENERO   cg$row.CD_GENERO%TYPE,
-    the_rowid 	ROWID);
+    CD_GENERO cg$row.CD_GENERO%TYPE,
+    the_rowid ROWID);
 
   --  PL/SQL Table Type variable for triggers
   TYPE cg$tab_row_type IS RECORD(
-    CD_GENERO          TB_GENERO.CD_GENERO%TYPE,
-    DS_GENERO          TB_GENERO.DS_GENERO%TYPE,
-    action_performed   VARCHAR2(4));
+    CD_GENERO        TB_GENERO.CD_GENERO%TYPE,
+    DS_GENERO        TB_GENERO.DS_GENERO%TYPE,
+    action_performed VARCHAR2(4));
 
   TYPE cg$table_type IS TABLE OF cg$tab_row_type INDEX BY BINARY_INTEGER;
 
