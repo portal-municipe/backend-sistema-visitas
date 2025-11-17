@@ -1,0 +1,73 @@
+#version: "3.8"
+
+services:
+  oracle-db:
+    image: gvenzl/oracle-xe:21-slim
+    container_name: oracle-db
+    restart: unless-stopped
+    environment:
+      ORACLE_PASSWORD: "P1ssword"
+      APP_USER: "admin"
+      APP_USER_PASSWORD: "P1ssword"
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    volumes:
+        - oracle_data:/opt/oracle/oradata
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo 'SELECT 1 FROM dual;' | sqlplus -s system/oracle@localhost:1521/XEPDB1 | grep 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  wso2-micro-integrator:
+    image: wso2/wso2mi:4.2.0
+    container_name: wso2mi
+    restart: unless-stopped
+    depends_on:
+      oracle-db:
+        condition: service_healthy
+    environment:
+      - JAVA_OPTS=-Duser.timezone=America/Sao_Paulo
+    ports:
+     - "8290:8290"   # HTTP APIs
+     - "8253:8253"   # Management console
+     - "9164:9164"   # Management API
+    volumes:
+     - ./deployment.toml:/home/wso2carbon/wso2mi-4.2.0/deployment.toml
+     - ./ojdbc11.jar:/home/wso2carbon/wso2mi-4.2.0/lib/ojdbc11.jar
+     - ./ojdbc8.jar:/home/wso2carbon/wso2mi-4.2.0/lib/ojdbc8.jar
+     - ./clientes_api.xml:/home/wso2carbon/wso2mi-4.2.0/repository/deployment/server/synapse-configs/default/api/clientes_api.xml
+     - wso2mi_data:/home/wso2carbon/wso2mi-4.2.0
+ 
+  wso2am:
+    image: wso2/wso2am:4.6.0-rc2
+    container_name: wso2
+    depends_on:
+      - oracle-db
+    ports:
+      - "9443:9443"
+      - "8280:8280"
+      - "8243:8243"
+    environment:
+      - JAVA_OPTS=-Xms512m -Xmx2048m
+      - DB_TYPE=oracle
+      - DB_HOST=wso2-oracle
+      - DB_PORT=1521
+      - DB_USER=system
+      - DB_PASSWORD=P1ssword
+      - DB_NAME=WSO2AM_DB
+    volumes:
+      - wso2_data:/home/wso2carbon/wso2am-4.6.0
+    networks:
+      - wso2net
+ 
+volumes:
+  oracle_data:
+  wso2_data:
+  wso2mi_data:
+ 
+networks:
+  wso2net:
+    driver: bridge
