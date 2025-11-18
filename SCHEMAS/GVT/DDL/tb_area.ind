@@ -1,4 +1,6 @@
 CREATE INDEX gvt.ix_pessoa ON gvt.tb_area
  (cd_area)
 tablespace tbsind_gvt
+
+
 /
