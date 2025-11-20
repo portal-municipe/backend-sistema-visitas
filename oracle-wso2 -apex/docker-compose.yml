@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+
+  oracle:
+    image: gvenzl/oracle-xe:18-slim
+    container_name: oracle-xe
+    environment:
+      ORACLE_PASSWORD: "Admin123"
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+      - ./oracle-init:/container-entrypoint-initdb.d
+
+  wso2-apim:
+    image: wso2/wso2am:4.6.0
+    container_name: wso2-apim
+    depends_on:
+      - oracle
+    ports:
+      - "9443:9443"
+      - "8280:8280"
+      - "8243:8243"
+    volumes:
+      - ./wso2-lib:/home/wso2carbon/wso2am/repository/components/lib
+      - ./wso2-apim-conf/deployment.toml:/home/wso2carbon/wso2am/repository/conf/deployment.toml
+
+  wso2-mi:
+    image: wso2/wso2mi:4.5.0
+    container_name: wso2-mi
+    depends_on:
+      - oracle
+    ports:
+      - "8290:8290"
+      - "8253:8253"
+    volumes:
+      - ./wso2-lib:/home/wso2carbon/wso2mi/repository/components/lib
+      - ./wso2-mi-conf/deployment.toml:/home/wso2carbon/wso2mi/repository/conf/deployment.toml
+
+volumes:
+  oracle-data:

@@ -1,0 +1,20 @@
+[database.shared_db]
+type = "oracle"
+url = "jdbc:oracle:thin:@oracle:1521/XEPDB1"
+username = "SHAREDDB"
+password = "shareddbpass"
+driver = "oracle.jdbc.driver.OracleDriver"
+
+[database.apim_db]
+type = "oracle"
+url = "jdbc:oracle:thin:@oracle:1521/XEPDB1"
+username = "AMDB"
+password = "amdbpass"
+driver = "oracle.jdbc.driver.OracleDriver"
+
+[database.user]
+type = "oracle"
+url = "jdbc:oracle:thin:@oracle:1521/XEPDB1"
+username = "AMDB"
+password = "amdbpass"
+driver = "oracle.jdbc.OracleDriver"

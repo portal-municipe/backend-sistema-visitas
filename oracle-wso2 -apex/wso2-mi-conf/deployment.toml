@@ -1,0 +1,8 @@
+[database.shared_db]
+url = "jdbc:oracle:thin:@oracle:1521/XEPDB1"
+username = "MI_DB"
+password = "mipass"
+driver = "oracle.jdbc.driver.OracleDriver"
+
+[mediation]
+synapse.global_timeout = 120000
